@@ -62,56 +62,56 @@ Configuration options (example values are the default):
 
 ```yaml
 # the output format of the changelog
-# same as -o, --output, and CHRONICLE_OUTPUT env var
+# same as -o, --output, and CHANGELOGGER_OUTPUT env var
 output: md
 
 # suppress all logging output
-# same as -q ; CHRONICLE_QUIET env var
+# same as -q ; CHANGELOGGER_QUIET env var
 quiet: false
 
 # all logging options
 log:
   # use structured logging
-  # same as CHRONICLE_LOG_STRUCTURED env var
+  # same as CHANGELOGGER_LOG_STRUCTURED env var
   structured: false
 
   # the log level
-  # same as CHRONICLE_LOG_LEVEL env var
+  # same as CHANGELOGGER_LOG_LEVEL env var
   level: "warn"
 
   # location to write the log file (default is not to have a log file)
-  # same as CHRONICLE_LOG_FILE env var
+  # same as CHANGELOGGER_LOG_FILE env var
   file: ""
 
 # guess what the next release version is based on the current version and set of changes (cannot be used with --until-tag)
-# same as --speculate-next-version / -n ; CHRONICLE_SPECULATE_NEXT_VERSION env var
+# same as --speculate-next-version / -n ; CHANGELOGGER_SPECULATE_NEXT_VERSION env var
 speculate-next-version: false
 
 # override the starting git tag for the changelog (default is to detect the last release automatically)
-# same as --since-tag / -s ; CHRONICLE_SINCE_TAG env var
+# same as --since-tag / -s ; CHANGELOGGER_SINCE_TAG env var
 since-tag: ""
 
 # override the ending git tag for the changelog (default is to use the tag or commit at git HEAD)
-# same as --until-tag / -u ; CHRONICLE_SINCE_TAG env var
+# same as --until-tag / -u ; CHANGELOGGER_SINCE_TAG env var
 until-tag: ""
 
 # if the current release version is < v1.0 then breaking changes will bump the minor version field
-# same as CHRONICLE_ENFORCE_V0 env var
+# same as CHANGELOGGER_ENFORCE_V0 env var
 enforce-v0: false
 
 # the title used for the changelog
-# same as CHRONICLE_TITLE
+# same as CHANGELOGGER_TITLE
 title: Changelog
 
 # all github-related settings
 github:
   
   # the github host to use (override for github enterprise deployments)
-  # same as CHRONICLE_GITHUB_HOST env var
+  # same as CHANGELOGGER_GITHUB_HOST env var
   host: github.com
   
   # do not consider any issues or PRs with any of the given labels
-  # same as CHRONICLE_GITHUB_EXCLUDE_LABELS env var
+  # same as CHANGELOGGER_GITHUB_EXCLUDE_LABELS env var
   exclude-labels:
     - duplicate
     - question
@@ -123,15 +123,15 @@ github:
     - ignore
   
   # consider merged PRs as candidate changelog entries (must have a matching label from a 'github.changes' entry)
-  # same as CHRONICLE_GITHUB_INCLUDE_PRS env var
+  # same as CHANGELOGGER_GITHUB_INCLUDE_PRS env var
   include-prs: true
 
   # consider closed issues as candidate changelog entries (must have a matching label from a 'github.changes' entry)
-  # same as CHRONICLE_GITHUB_INCLUDE_ISSUES env var
+  # same as CHANGELOGGER_GITHUB_INCLUDE_ISSUES env var
   include-issues: true
 
   # issues can only be considered for changelog candidates if they have linked PRs that are merged (note: does NOT require github.include-issues to be set)
-  # same as CHRONICLE_GITHUB_ISSUES_REQUIRE_LINKED_PRS env var
+  # same as CHANGELOGGER_GITHUB_ISSUES_REQUIRE_LINKED_PRS env var
   issues-require-linked-prs: false
   
   # list of definitions of what labels applied to issues or PRs constitute a changelog entry. These entries also dictate 
