@@ -7,7 +7,7 @@ import (
 	"github.com/gookit/color"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	"github.com/wagoodman/go-partybus"
+	"github.com/sulaiman-coder/goeventbus"
 
 	"github.com/khulnasoft-labs/changelogger/changelogger"
 	"github.com/khulnasoft-labs/changelogger/internal/config"
@@ -17,8 +17,8 @@ import (
 
 var (
 	appConfig         *config.Application
-	eventBus          *partybus.Bus
-	eventSubscription *partybus.Subscription // nolint
+	eventBus          *eventbus.Bus
+	eventSubscription *eventbus.Subscription // nolint
 )
 
 func init() {
@@ -95,7 +95,7 @@ func logAppConfig() {
 }
 
 func initEventBus() {
-	eventBus = partybus.NewBus()
+	eventBus = eventbus.NewBus()
 	eventSubscription = eventBus.Subscribe()
 	changelogger.SetBus(eventBus)
 }

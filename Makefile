@@ -84,7 +84,7 @@ $(TEMPDIR):
 bootstrap-tools: $(TEMPDIR)
 	GO111MODULE=off GOBIN=$(shell realpath $(TEMPDIR)) go get -u golang.org/x/perf/cmd/benchstat
 	curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(TEMPDIR)/ v1.47.2
-	curl -sSfL https://raw.githubusercontent.com/wagoodman/go-bouncer/master/bouncer.sh | sh -s -- -b $(TEMPDIR)/ v0.4.0
+	curl -sSfL https://raw.githubusercontent.com/sulaiman-coder/gobouncer/master/bouncer.sh | sh -s -- -b $(TEMPDIR)/ v0.2.0
 	# we purposefully use the latest version of changelogger released
 	curl -sSfL https://raw.githubusercontent.com/khulnasoft-labs/changelogger/main/install.sh | sh -s -- -b $(TEMPDIR)/ v0.6.0
 	.github/scripts/goreleaser-install.sh -b $(TEMPDIR)/ v0.182.1

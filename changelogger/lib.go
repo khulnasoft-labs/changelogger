@@ -1,7 +1,7 @@
 package changelogger
 
 import (
-	"github.com/wagoodman/go-partybus"
+	"github.com/sulaiman-coder/goeventbus"
 
 	"github.com/khulnasoft-labs/changelogger/internal/bus"
 	"github.com/khulnasoft-labs/changelogger/internal/log"
@@ -14,6 +14,6 @@ func SetLogger(logger logger.Logger) {
 }
 
 // SetBus sets the event bus for all published events onto (in-library subscriptions are not allowed).
-func SetBus(b *partybus.Bus) {
+func SetBus(b *eventbus.Bus) {
 	bus.SetPublisher(b)
 }
