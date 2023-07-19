@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/sulaiman-coder/go-presenter"
+	"github.com/anchore/syft"
 
 	"github.com/khulnasoft-labs/changelogger/changelogger/release"
 	"github.com/khulnasoft-labs/changelogger/changelogger/release/format"

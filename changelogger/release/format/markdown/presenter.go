@@ -5,7 +5,7 @@ import (
 	"io"
 	"text/template"
 
-	"github.com/wagoodman/go-presenter"
+	"github.com/sulaiman-coder/go-presenter"
 
 	"github.com/khulnasoft-labs/changelogger/changelogger/release"
 	"github.com/khulnasoft-labs/changelogger/changelogger/release/change"
