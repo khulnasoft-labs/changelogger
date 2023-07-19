@@ -1,0 +1,50 @@
+release:
+  # If set to auto, will mark the release as not ready for production in case there is an indicator for this in the
+  # tag e.g. v1.0.0-rc1 .If set to true, will mark the release as not ready for production.
+  prerelease: auto
+
+  # If set to true, will not auto-publish the release. This is done to allow us to review the changelog before publishing.
+  draft: true
+
+builds:
+  - binary: changelogger
+    id: changelogger
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - windows
+      - linux
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+    # Set the modified timestamp on the output binary to the git timestamp (to ensure a reproducible build)
+    mod_timestamp: '{{ .CommitTimestamp }}'
+    ldflags: |
+      -w
+      -s
+      -extldflags '-static'
+      -X github.com/khulnasoft-labs/changelogger/internal/version.version={{.Version}}
+      -X github.com/khulnasoft-labs/changelogger/internal/version.gitCommit={{.Commit}}
+      -X github.com/khulnasoft-labs/changelogger/internal/version.buildDate={{.Date}}
+      -X github.com/khulnasoft-labs/changelogger/internal/version.gitTreeState={{.Env.BUILD_GIT_TREE_STATE}}
+
+nfpms:
+  -
+    formats:
+      - deb
+      - rpm
+    vendor: "khulnasoft-labs"
+    homepage: "https://github.com/khulnasoft-labs/changelogger"
+    maintainer: "Alex Goodman <alex.goodman@khulnasoft-labs.com>"
+    description: "A fast changelog generator sourced from PRs and Issues"
+    license: "Apache-2.0"
+    file_name_template: "{{.ProjectName}}_{{.Version}}_{{.Os}}-{{.Arch}}"
+    replacements:
+      amd64: 64bit
+      arm64: ARM64
+      darwin: macOS
+      linux: Linux
+
+universal_binaries:
+  - replace: true
